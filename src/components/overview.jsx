@@ -1,4 +1,3 @@
-import { Linter } from "eslint"
 
 function Overview({goals}){
     //number of goals

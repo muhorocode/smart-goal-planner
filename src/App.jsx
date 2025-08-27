@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import AddGoalForm from './components/AddGoalForm'
 import GoalList from './components/GoalList'
-import DepositForm from './components/DeposiForm'
+import DepositForm from './components/DepositForm'
 import Overview from './components/overview'  
 
 function App(){
