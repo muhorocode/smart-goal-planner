@@ -113,6 +113,12 @@
       "name": "renovate compound",
       "targetAmount": "10000",
       "savedAmount": 0
+    },
+    {
+      "id": "7c31",
+      "name": "paint the house",
+      "targetAmount": "10000",
+      "savedAmount": 0
     }
   ]
 }

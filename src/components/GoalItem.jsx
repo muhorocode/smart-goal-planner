@@ -2,7 +2,7 @@
 //displays a single goal with progress information
 function GoalItem({goal}){
     //calculate the progress as a percentage
-    const progress=(GoalItem.savedAmount/GoalItem.targetAmount)*100
+    const progress=(goal.savedAmount/goal.targetAmount)*100
     // how much money is remaining
     const remaining=goal.targetAmount-goal.savedAmount
 
