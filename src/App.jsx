@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import AddGoalForm from './components/AddGoalForm'
+import GoalList from './components/GoalList'
 
 function App(){
   const [goals, setGoals]= useState([])
@@ -15,10 +16,11 @@ function App(){
 //add a new goal
 
 const addGoal=(goal)=>{
-  fetch('http://localhost:3001/goals',{
+  fetch('http://localhost:3001/goals',
+    {
     method:'post',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(newGoal)
+    body:JSON.stringify(goal)
   })
    .then((res)=>res.json())
    .then((data)=>setGoals((prev)=>[...prev,data]))
@@ -28,6 +30,7 @@ const addGoal=(goal)=>{
   return(
    <div style={{padding:"20px"}}>
    <h1>Smart Goal Planner</h1>
+   <GoalList goals={goals}/>
    <AddGoalForm onAddGoal={addGoal}/>
    </div>
   )

@@ -101,6 +101,18 @@
       "name": "learn react",
       "targetAmount": "100",
       "savedAmount": 0
+    },
+    {
+      "id": "3416",
+      "name": "learn javascript",
+      "targetAmount": "2000",
+      "savedAmount": 0
+    },
+    {
+      "id": "b724",
+      "name": "renovate compound",
+      "targetAmount": "10000",
+      "savedAmount": 0
     }
   ]
 }
