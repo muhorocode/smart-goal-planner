@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import AddGoalForm from './components/AddGoalForm'
 
 function App(){
   const [goals, setGoals]= useState([])
@@ -27,6 +28,7 @@ const addGoal=(goal)=>{
   return(
    <div style={{padding:"20px"}}>
    <h1>Smart Goal Planner</h1>
+   <AddGoalForm onAddGoal={addGoal}/>
    </div>
   )
 }
