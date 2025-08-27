@@ -5,11 +5,11 @@ function Overview({goals}){
 
  // money saved across all goals
 
- const totalSaved=goals.reduce((sum,goal)=>sum+goal.saved,0)    
+ const totalSaved=goals.reduce((sum,goal)=>sum+goal.savedAmount,0)    
 
  //goals completed
 
-const completeGoals=goals.filter((goal)=>goal.savedAmount>=goal.targetAmount).length
+const completedGoals=goals.filter((goal)=>goal.savedAmount>=goal.targetAmount).length
 
 // date to calculate deadlines
 
