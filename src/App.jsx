@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import AddGoalForm from './components/AddGoalForm'
 import GoalList from './components/GoalList'
 import DepositForm from './components/DeposiForm'
+import Overview from './components/overview'  
 
 function App(){
   const [goals, setGoals]= useState([])
@@ -29,10 +30,16 @@ const addGoal=(goal)=>{
 }
 
 const addDeposit = (goalId, amount) => {
-  fetch(`http://localhost:3001/goals/${goalId}/deposit`, {
-    method: 'POST',
+  //finds the current goal to access its saved amount
+
+  const goal=goals.find(goals=>goals.id===goalId)
+  if(!goal)return
+  const newSavedAmount=Number(goal.savedAmount)+Number(amount)
+
+  fetch(`http://localhost:3001/goals/${goalId}`, {
+    method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ amount })
+    body: JSON.stringify({ savedAmount:newSavedAmount})
   })
     .then(res => res.json())
     .then(updatedGoal => {
@@ -45,10 +52,21 @@ const addDeposit = (goalId, amount) => {
     .catch(error => console.error('Error adding deposit:', error));
 };
 
+ const deleteGoal=(goalId)=>{
+  fetch(`http://localhost:3001/goals/${goalId}`,{
+    method:'DELETE'
+  })
+  .then(()=>{
+    setGoals((prev)=>prev.filter((goal)=>goal.id !== goalId))
+  })
+  .catch((error)=>console.error('There was an error deleting the goal:',error))
+ }
+
   return(
    <div style={{padding:"20px"}}>
    <h1>Smart Goal Planner</h1>
-   <GoalList goals={goals}/>
+   <Overview goals={goals}/>
+   <GoalList goals={goals} onDelete={deleteGoal}/>
    <AddGoalForm onAddGoal={addGoal}/>
    <DepositForm goals={goals} onDeposit={addDeposit}/>
    </div>

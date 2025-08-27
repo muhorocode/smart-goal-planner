@@ -115,10 +115,10 @@
       "savedAmount": 0
     },
     {
-      "id": "7c31",
-      "name": "paint the house",
-      "targetAmount": "10000",
-      "savedAmount": 0
+      "id": "5c52",
+      "name": "build a house",
+      "targetAmount": "100000",
+      "savedAmount": 70000
     }
   ]
 }
