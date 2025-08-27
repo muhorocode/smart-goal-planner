@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react'
-import axios from 'axios'
 
 function App(){
   const [goals, setGoals]= useState([])
@@ -7,11 +6,11 @@ function App(){
   // used to fetch goals when component mounts
 
   useEffect(()=>{
-    axios
-    .get('http://localhost:3001/goals')
-    .then((res)=>setGoals(res.data))
-    .then(((err)=>console.error("Error fetching goals:",err)))
-  },[])
+    fetch('http://localhost:3001/goals')
+    .then((res)=>res.json())
+    .then((data)=>setGoals(data))
+    .catch((error)=>console.error('There was an error fetching the Goal:',error))
+},[])
   return(
     <div style={{padding:"20px"}}>
      <h1>Smart Goal Planner`</h1>
